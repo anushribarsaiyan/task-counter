@@ -1,0 +1,54 @@
+
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+         <h5>Last 5 order</h5>
+        <hr>
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Task_name</th>
+                    <th>Task</th>
+                    <th>start_time</th>
+                    <th>end_time</th>
+
+
+                    <th>Start</th>
+                    <th>end</th>
+                </tr>
+                {% for  i  in  s %}
+                <tr>
+                    <td>{{ i.Task_name}}</td>
+                    <td>{{ i.Task}}</td>
+                    <td>{{ i.start_time}}</td>
+                    <td>{{ i.end_time}}</td>
+                    <td><button onclick="countdownTimeStar()">Start Timer</button></td>
+                {% endfor %}
+
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+<script>
+const startMinutes=10
+let time =startMinutes *60
+const countdownEL=document.getElementById('countdown'):
+srtInterval(updateCountdown, 1000):
+
+function countdownTimeStart(){
+    count minutes=Math.floor(time/60);
+    let seconds=time%60
+    countdownEL.innerHTML='${minutes}:${second}';
+    time--;
+
+}
+
+</script>
+
+
+{% endblock content %}

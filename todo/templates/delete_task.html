@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+                 <p>Are you sure you complate this task  "{{item}}"?</p>
+                 <form action="{% url 'delete' item.id  %}" method="POST">
+                     <a href="{% url 'table' %}">back you table</a>
+
+                     {% csrf_token %}
+                      <a href="{% url 'table' %}">Cancle</a>
+
+                        <input type="submit" name="Confirm">
+                        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
